@@ -1,6 +1,7 @@
 
 
 import 'package:ams_v1/utils/routes/routes_name.dart';
+import 'package:ams_v1/view/flat_setup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,6 +26,9 @@ class Routes {
         return MaterialPageRoute(builder: (BuildContext context) => const LoginView());
       case RoutesName.signUp:
         return MaterialPageRoute(builder: (BuildContext context) => const SignUpView());
+      case RoutesName.flatSetup:
+        return MaterialPageRoute(builder: (BuildContext context) => const FlatSetup());
+
 
       default:
         return MaterialPageRoute(builder: (_){
