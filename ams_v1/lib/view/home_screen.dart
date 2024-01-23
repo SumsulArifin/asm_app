@@ -1,9 +1,10 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../res/color.dart';
+
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -14,24 +15,106 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColors.bodyColor,
         title: Center(child: const Text("Home ")),
       ),
-      body: Center(
-        child: Text("Home Screen"),
+      body: Container(
+        color: AppColors.bodyColor,
       ),
-
     );
   }
 }
 
+// import 'package:ams_v1/res/color.dart';
+// import 'package:ams_v1/view_model/home_view_model.dart';
+// import 'package:flutter/cupertino.dart';
+// import 'package:flutter/material.dart';
+// import 'package:provider/provider.dart';
+//
+// class HomeScreen extends StatefulWidget {
+//   const HomeScreen({Key? key}) : super(key: key);
+//
+//   @override
+//   State<HomeScreen> createState() => _HomeScreenState();
+// }
+//
+// class _HomeScreenState extends State<HomeScreen> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: ListView(
+//         children: [
+//           Container(
+//             padding: EdgeInsets.only(top: 15, bottom: 15, left: 15, right: 15),
+//             decoration: BoxDecoration(
+//               color: AppColors.bodyColor,
+//               borderRadius: BorderRadius.only(
+//                   bottomLeft: Radius.circular(15),
+//                   bottomRight: Radius.circular(15)),
+//             ),
+//             child: Column(
+//               crossAxisAlignment: CrossAxisAlignment.start,
+//               children: [
+//                 Row(
+//                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                   children: [
+//                     Icon(
+//                         Icons.account_circle_outlined,
+//                     size: 20,
+//                     color: Colors.black,),
+//                     Icon(
+//                       Icons.logout_rounded,
+//                       size: 20,
+//                       color: Colors.black,),
+//                   ],
+//                 ),
+//                 SizedBox(height: 25),
+//                 Padding(
+//                     padding: EdgeInsets.only(left: 3,bottom: 15),
+//                 child: Text("Hello User",
+//                 style: TextStyle(
+//                   fontSize: 25,
+//                   fontWeight: FontWeight.w500,
+//                   letterSpacing: 1,
+//                   wordSpacing: 2,
+//                   color: Colors.black
+//
+//                 ),),
+//                 )
+//               ],
+//             ),
+//           )
+//         ],
+//       ),
+//     );
+//   }
+//
+//
+//   Widget _buildHomePage(BuildContext context) {
+//     return Padding(
+//         padding: EdgeInsets.only(right: 8),
+//         child: Consumer<HomeViewViewModel>(builder: (context, provider, child) {
+//           return GridView.builder(
+//               shrinkWrap: true,
+//               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//                   mainAxisExtent: 99,
+//                   crossAxisCount: 3,
+//                   mainAxisSpacing: 53,
+//                   crossAxisSpacing: 53),
+//               physics: NeverScrollableScrollPhysics(),
+//               itemCount: provider.homepageModelObj.homepageItemList.length,
+//               itemBuilder: (context, index) {
+//                 HomepageItemModel model =
+//                 provider.homepageModelObj.homepageItemList[index];
+//                 return HomepageItemWidget(model);
+//               });
+//         }));
+//   }
+// }
 
 ////
 
-
-
-
 ////
-
 
 //
 // import 'package:flutter/material.dart';
