@@ -84,31 +84,51 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, RoutesName.flatSetup);
-                        },
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              "assets/images/img_building_1.png",
-                              width: 70,
-                              height: 70,
-                              fit: BoxFit.cover,
-                            ),
-                            SizedBox(height: 8),
-                            Text(
-                              "Flat Setup",
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black,
-                              ),
-                            ),
-                            
-                          ],
+
+                      height: 40,
+                      width: 40,,
+                      child: Card(
+                        elevation: 20,
+                        color: AppColors.homeIcon,
+                        child: Padding(
+                          padding: EdgeInsets.all(15.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Image.asset("assets/images/img_building_1.png", width: 40, height: 40),
+                                           // ElevatedButton(
+                              //   onPressed: () {},
+                              //   child: Text("Press", style: TextStyle(color: Colors.green)),
+                              // ),
+                            ],
+                          ),
                         ),
                       ),
+                      // child: InkWell(
+                      //   onTap: () {
+                      //     Navigator.pushNamed(context, RoutesName.flatSetup);
+                      //   },
+                      //   child: Column(
+                      //     children: [
+                      //       Image.asset(
+                      //         "assets/images/img_building_1.png",
+                      //         width: 70,
+                      //         height: 70,
+                      //         fit: BoxFit.cover,
+                      //       ),
+                      //       SizedBox(height: 8),
+                      //       Text(
+                      //         "Flat Setup",
+                      //         style: TextStyle(
+                      //           fontSize: 12,
+                      //           fontWeight: FontWeight.w600,
+                      //           color: Colors.black,
+                      //         ),
+                      //       ),
+                      //
+                      //     ],
+                      //   ),
+                      // ),
                     ),
                     InkWell(
                       onTap: () {
