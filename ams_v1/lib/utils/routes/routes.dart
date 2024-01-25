@@ -1,7 +1,13 @@
 
 
 import 'package:ams_v1/utils/routes/routes_name.dart';
+import 'package:ams_v1/view/collection_Secrren.dart';
+import 'package:ams_v1/view/createUser_screen.dart';
+import 'package:ams_v1/view/expense_Screen.dart';
 import 'package:ams_v1/view/flat_setup.dart';
+import 'package:ams_v1/view/generate_Bill.dart';
+import 'package:ams_v1/view/service_Charge_Screen.dart';
+import 'package:ams_v1/view/user_profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -28,6 +34,19 @@ class Routes {
         return MaterialPageRoute(builder: (BuildContext context) => const SignUpView());
       case RoutesName.flatSetup:
         return MaterialPageRoute(builder: (BuildContext context) => const FlatSetup());
+      case RoutesName.createUser:
+        return MaterialPageRoute(builder: (BuildContext context) => const CreateUserScreen());
+      case RoutesName.generateBillScreen:
+        return MaterialPageRoute(builder: (BuildContext context) => const GenerateBillScreen());
+      case RoutesName.serviceChargeScreen:
+        return MaterialPageRoute(builder: (BuildContext context) => const Service_Charge_Screen());
+      case RoutesName.expense:
+        return MaterialPageRoute(builder: (BuildContext context) => const Expense_Screen());
+      case RoutesName.collection:
+        return MaterialPageRoute(builder: (BuildContext context) => const Collection_Screen());
+      case RoutesName.userprofile:
+        return MaterialPageRoute(builder: (BuildContext context) => const User_Profile_Screen());
+
 
 
       default:
