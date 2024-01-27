@@ -7,6 +7,7 @@ import 'package:ams_v1/view/expense_Screen.dart';
 import 'package:ams_v1/view/flat_setup.dart';
 import 'package:ams_v1/view/generate_Bill.dart';
 import 'package:ams_v1/view/service_Charge_Screen.dart';
+import 'package:ams_v1/view/userLogin.dart';
 import 'package:ams_v1/view/user_profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +47,8 @@ class Routes {
         return MaterialPageRoute(builder: (BuildContext context) => const Collection_Screen());
       case RoutesName.userprofile:
         return MaterialPageRoute(builder: (BuildContext context) => const User_Profile_Screen());
+      case RoutesName.userLogin:
+        return MaterialPageRoute(builder: (BuildContext context) => const UserLogin());
 
 
 

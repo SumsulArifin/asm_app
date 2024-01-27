@@ -20,14 +20,14 @@ class _SignUpViewState extends State<SignUpView> {
   TextEditingController _nameController = TextEditingController();
   TextEditingController _addressController = TextEditingController();
   TextEditingController _phoneController = TextEditingController();
-  TextEditingController _customerIdController = TextEditingController();
+  TextEditingController _nidController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
   FocusNode nameFocusNode = FocusNode();
   FocusNode addressFocusNode = FocusNode();
   FocusNode phoneFocusNode = FocusNode();
-  FocusNode customerIdFocusNode = FocusNode();
+  FocusNode nidFocusNode = FocusNode();
   FocusNode emailFocusNode = FocusNode();
   FocusNode passwordFocusNode = FocusNode();
 
@@ -38,14 +38,14 @@ class _SignUpViewState extends State<SignUpView> {
     _nameController.dispose();
     _addressController.dispose();
     _phoneController.dispose();
-    _customerIdController.dispose();
+    _nidController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
 
     nameFocusNode.dispose();
     addressFocusNode.dispose();
     phoneFocusNode.dispose();
-    customerIdFocusNode.dispose();
+    nidFocusNode.dispose();
     emailFocusNode.dispose();
     passwordFocusNode.dispose();
 
@@ -114,19 +114,19 @@ class _SignUpViewState extends State<SignUpView> {
                       prefixIcon: Icon(Icons.phone),
                     ),
                     onFieldSubmitted: (_) {
-                      Utils.fieldFocusChange(context, phoneFocusNode, customerIdFocusNode);
+                      Utils.fieldFocusChange(context, phoneFocusNode, nidFocusNode);
                     },
                   ),
                   TextFormField(
-                    controller: _customerIdController,
-                    focusNode: customerIdFocusNode,
+                    controller: _nidController,
+                    focusNode: nidFocusNode,
                     decoration: const InputDecoration(
-                      hintText: 'Customer ID',
-                      labelText: 'Customer ID',
-                      prefixIcon: Icon(Icons.credit_card),
+                      hintText: 'NID',
+                      labelText: 'NID',
+                      prefixIcon: Icon(Icons.numbers),
                     ),
                     onFieldSubmitted: (_) {
-                      Utils.fieldFocusChange(context, customerIdFocusNode, emailFocusNode);
+                      Utils.fieldFocusChange(context, nidFocusNode, emailFocusNode);
                     },
                   ),
                   TextFormField(
@@ -177,7 +177,7 @@ class _SignUpViewState extends State<SignUpView> {
                         Utils.flushBarErrorMessage('Please enter address', context);
                       } else if (_phoneController.text.isEmpty) {
                         Utils.flushBarErrorMessage('Please enter phone', context);
-                      } else if (_customerIdController.text.isEmpty) {
+                      } else if (_nidController.text.isEmpty) {
                         Utils.flushBarErrorMessage('Please enter customer ID', context);
                       } else if (_emailController.text.isEmpty) {
                         Utils.flushBarErrorMessage('Please enter email', context);
@@ -190,7 +190,7 @@ class _SignUpViewState extends State<SignUpView> {
                           'name': _nameController.text.toString(),
                           'address': _addressController.text.toString(),
                           'phone': _phoneController.text.toString(),
-                          'customer_id': _customerIdController.text.toString(),
+                          'nid_no': _nidController.text.toString(),
                           'email': _emailController.text.toString(),
                           'password': _passwordController.text.toString(),
                         };

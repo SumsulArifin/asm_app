@@ -173,14 +173,14 @@ import '../utils/routes/routes_name.dart';
 import '../utils/utils.dart';
 import '../view_model/auth_view_model.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({Key? key}) : super(key: key);
+class UserLogin extends StatefulWidget {
+  const UserLogin({Key? key}) : super(key: key);
 
   @override
   _LoginViewState createState() => _LoginViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _LoginViewState extends State<UserLogin> {
   ValueNotifier<bool> _obscurePassword = ValueNotifier<bool>(true);
 
   TextEditingController _customerController = TextEditingController();
@@ -215,7 +215,7 @@ class _LoginViewState extends State<LoginView> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.bodyColor,
-        title: Text('Customer Login'),
+        title: Text('User Login'),
         centerTitle: true,
       ),
       body: Container(
@@ -256,13 +256,27 @@ class _LoginViewState extends State<LoginView> {
               ),
               SizedBox(height: 30,),
               TextFormField(
+                controller: _customerController,
+                keyboardType: TextInputType.number,
+                focusNode: customerFocusNode,
+                decoration: const InputDecoration(
+                  hintText: 'Customer ID',
+                  labelText: 'Customer ID',
+                  prefixIcon: Icon(Icons.perm_identity_sharp),
+                ),
+                onFieldSubmitted: (value) {
+                  Utils.fieldFocusChange(
+                      context, emailFocusNode, passwordFocusNode);
+                },
+              ),
+              TextFormField(
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
                 focusNode: emailFocusNode,
                 decoration: const InputDecoration(
-                  hintText: 'Email Address',
-                  labelText: 'Email Address',
-                  prefixIcon: Icon(Icons.email),
+                  hintText: 'Mobile Number',
+                  labelText: 'Mobile Number',
+                  prefixIcon: Icon(Icons.phone_android_rounded),
                 ),
                 onFieldSubmitted: (value) {
                   Utils.fieldFocusChange(
@@ -298,7 +312,7 @@ class _LoginViewState extends State<LoginView> {
                 title: 'Login',
                 loading: authViewModel.loading,
                 onPress: () {
-                  // Navigator.pushNamed(context, RoutesName.home);
+                  Navigator.pushNamed(context, RoutesName.home);
                   if (_emailController.text.isEmpty) {
                     Utils.flushBarErrorMessage(
                         'Please enter email', context);
@@ -319,12 +333,6 @@ class _LoginViewState extends State<LoginView> {
                 },
               ),
               SizedBox(height: height * 0.02),
-              InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, RoutesName.signUp);
-                },
-                child: Text("Don't have an account? Sign Up"),
-              ),
             ],
           ),
         ),
