@@ -316,6 +316,7 @@ class _LoginViewState extends State<LoginView> {
 
                     authViewModel.loginApi(data, context);
                   }
+
                 },
               ),
               SizedBox(height: height * 0.02),

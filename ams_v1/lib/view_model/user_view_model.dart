@@ -1,11 +1,12 @@
 
 import 'package:flutter/cupertino.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../model/user_model.dart';
 
 class UserViewModel with ChangeNotifier{
+
+
 
   Future<bool> saveUser(UserModel user)async{
 

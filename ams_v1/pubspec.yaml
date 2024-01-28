@@ -43,6 +43,7 @@ dependencies:
   cached_network_image: ^3.3.0
   flutter_svg: ^2.0.9
   intl: ^0.18.0
+  dropdown_button2: ^2.3.8
 
 
 dev_dependencies:

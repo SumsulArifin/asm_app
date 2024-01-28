@@ -1,18 +1,20 @@
 class UserModel {
   String? token;
+  int? customersId;
 
-  UserModel({this.token});
+  UserModel({this.token, this.customersId});
 
-  UserModel.fromJson(Map<String, dynamic> json) {
-    token = json['token'];
-
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
+      token: json['token'],
+      customersId: json['customers_id'],
+    );
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['token'] = this.token;
-
-    return data;
+    return {
+      'token': token,
+      'customers_id': customersId,
+    };
   }
 }
-

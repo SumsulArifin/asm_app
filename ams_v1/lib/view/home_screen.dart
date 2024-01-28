@@ -1,10 +1,9 @@
 import 'package:ams_v1/res/color.dart';
-import 'package:ams_v1/view_model/home_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../utils/routes/routes_name.dart';
+import '../view_model/user_view_model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,6 +15,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    // final userViewModel = context.read<UserViewModel>();
+    // final customersId = userViewModel.user?.customersId;
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.bodyColor,
@@ -84,59 +85,31 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      child: Card(
-                        elevation: 20,
-                        color: AppColors.homeIcon,
-                        child: Padding(
-                          padding: EdgeInsets.all(15.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              InkWell(
-                                  onTap: () {
-                                    Navigator.pushNamed(context, RoutesName.flatSetup);
-                                  },
-                                  child: Image.asset(
-                                      "assets/images/img_building_1.png",
-                                      width: 40,
-                                      height: 40)
-
-                              ),
-                              // ElevatedButton(
-                              //   onPressed: () {},
-                              //   child: Text("Press", style: TextStyle(color: Colors.green)),
-                              // ),
-                            ],
-                          ),
+              InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, RoutesName.flatSetup);
+                  },
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        "assets/images/img_building_1.png",
+                        width: 70,
+                        height: 70,
+                        fit: BoxFit.cover,
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        "Flat Setup",
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black,
                         ),
                       ),
-                      // child: InkWell(
-                      //   onTap: () {
-                      //     Navigator.pushNamed(context, RoutesName.flatSetup);
-                      //   },
-                      //   child: Column(
-                      //     children: [
-                      //       Image.asset(
-                      //         "assets/images/img_building_1.png",
-                      //         width: 70,
-                      //         height: 70,
-                      //         fit: BoxFit.cover,
-                      //       ),
-                      //       SizedBox(height: 8),
-                      //       Text(
-                      //         "Flat Setup",
-                      //         style: TextStyle(
-                      //           fontSize: 12,
-                      //           fontWeight: FontWeight.w600,
-                      //           color: Colors.black,
-                      //         ),
-                      //       ),
-                      //
-                      //     ],
-                      //   ),
-                      // ),
-                    ),
+
+                    ],
+                  ),
+                ),
                     InkWell(
                       onTap: () {
                         Navigator.pushNamed(context, RoutesName.createUser);
