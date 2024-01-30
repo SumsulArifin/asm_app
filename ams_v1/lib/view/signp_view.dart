@@ -15,6 +15,13 @@ class SignUpView extends StatefulWidget {
 }
 
 class _SignUpViewState extends State<SignUpView> {
+
+  final appbar = AppBar(
+    backgroundColor: AppColors.bodyColor,
+    title: Text('SignUp'),
+    centerTitle: true,
+  );
+
   ValueNotifier<bool> _obsecurePassword = ValueNotifier<bool>(true);
 
   TextEditingController _nameController = TextEditingController();
@@ -59,18 +66,16 @@ class _SignUpViewState extends State<SignUpView> {
     final height = MediaQuery.of(context).size.height * 1;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.bodyColor,
-        title: Text('SignUp'),
-        centerTitle: true,
-      ),
+      appBar: appbar,
       body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: (MediaQuery.of(context).size.height - appbar.preferredSize.height),
         color: AppColors.bodyColor,
         child: SafeArea(
           child: SingleChildScrollView(
 
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(10.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,

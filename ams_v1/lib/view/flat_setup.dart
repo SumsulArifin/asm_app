@@ -18,6 +18,10 @@ class _FlatSetupState extends State<FlatSetup> {
       ),
       backgroundColor: AppColors.bodyColor,
       body: Container(
+
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+
         padding: EdgeInsets.all(16),
         child: SingleChildScrollView(
           child: Column(
