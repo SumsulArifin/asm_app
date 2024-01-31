@@ -183,7 +183,7 @@ class _SignUpViewState extends State<SignUpView> {
                       } else if (_phoneController.text.isEmpty) {
                         Utils.flushBarErrorMessage('Please enter phone', context);
                       } else if (_nidController.text.isEmpty) {
-                        Utils.flushBarErrorMessage('Please enter customer ID', context);
+                        Utils.flushBarErrorMessage('Please enter NID ', context);
                       } else if (_emailController.text.isEmpty) {
                         Utils.flushBarErrorMessage('Please enter email', context);
                       } else if (_passwordController.text.isEmpty) {
