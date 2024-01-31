@@ -10,9 +10,6 @@ class FlatSetup extends StatefulWidget {
 
 class _FlatSetupState extends State<FlatSetup> {
 
-  double fem = 1.0;
-
-  double ffem = 1.0;
 
   final appbar = AppBar(
     backgroundColor: Color(0xfffbf8d3),
