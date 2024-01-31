@@ -1,6 +1,8 @@
 import 'package:ams_v1/res/color.dart';
 import 'package:flutter/material.dart';
 
+import 'home_screen.dart';
+
 class FlatSetup extends StatefulWidget {
   const FlatSetup({Key? key}) : super(key: key);
 
@@ -11,27 +13,57 @@ class FlatSetup extends StatefulWidget {
 class _FlatSetupState extends State<FlatSetup> {
 
 
-  final appbar = AppBar(
-    backgroundColor: Color(0xfffbf8d3),
-    title: Center(
-      child: Text(
-        "Flat Setup",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 15,
-          fontWeight: FontWeight.w400,
-          height: 15,
-          color: Color(0xff000000),
-        ),
-      ),
-    ),
-  );
-
+  void _navigateToOtherPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => HomeScreen()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appbar,
+      appBar: AppBar(
+        backgroundColor: Color(0xfffbf8d3),
+        // backgroundColor: Colors.greenAccent,
+        title: Center(
+          child: Text(
+            "Flat Setup",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w400,
+              height: 15,
+              color: Color(0xff000000),
+            ),
+          ),
+        ),
+        shape: ContinuousRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(35),
+            bottomRight: Radius.circular(35),
+          ),
+        ),
+        elevation: 4.0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomeScreen()),
+            );
+          },
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () {
+              // Handle menu icon press
+            },
+          ),
+        ], // Set the elevation to add a shadow
+      ),
+
       resizeToAvoidBottomInset: false,
       body: Container(
         padding: EdgeInsets.all(16.0),
