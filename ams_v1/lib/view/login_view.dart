@@ -210,15 +210,19 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     final authViewModel = Provider.of<AuthViewModel>(context);
 
-    final height = MediaQuery.of(context).size.height * 1;
+
+    final appbar =  AppBar(
+      backgroundColor: AppColors.bodyColor,
+      title: Text('Customer Login'),
+      centerTitle: true,
+    );
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.bodyColor,
-        title: Text('Customer Login'),
-        centerTitle: true,
-      ),
+      resizeToAvoidBottomInset: false,
+      appBar:appbar,
       body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: (MediaQuery.of(context).size.height - appbar.preferredSize.height),
         color: AppColors.bodyColor, // Replace with your desired body color
         child: SafeArea(
           child: Column(
@@ -293,7 +297,8 @@ class _LoginViewState extends State<LoginView> {
                   );
                 },
               ),
-              SizedBox(height: height * 0.085),
+              SizedBox(height: 20),
+              // height * 0.085
               RoundButton(
                 title: 'Login',
                 loading: authViewModel.loading,
@@ -319,7 +324,8 @@ class _LoginViewState extends State<LoginView> {
 
                 },
               ),
-              SizedBox(height: height * 0.02),
+              SizedBox(height: 20),
+              // height * 0.02
               InkWell(
                 onTap: () {
                   Navigator.pushNamed(context, RoutesName.signUp);
