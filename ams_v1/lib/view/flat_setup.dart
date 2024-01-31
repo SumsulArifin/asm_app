@@ -9,143 +9,110 @@ class FlatSetup extends StatefulWidget {
 }
 
 class _FlatSetupState extends State<FlatSetup> {
+
+  double fem = 1.0;
+
+  double ffem = 1.0;
+
+  final appbar = AppBar(
+    backgroundColor: Color(0xfffbf8d3),
+    title: Center(
+      child: Text(
+        "Flat Setup",
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.w400,
+          height: 15,
+          color: Color(0xff000000),
+        ),
+      ),
+    ),
+  );
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.appBarColor,
-        title: Center(child: Text("Flat Setup")),
-      ),
-      backgroundColor: AppColors.bodyColor,
+      appBar: appbar,
+      resizeToAvoidBottomInset: false,
       body: Container(
-
+        padding: EdgeInsets.all(16.0),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-
-        padding: EdgeInsets.all(16),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 8),
-              TextFormField(
-                decoration: const InputDecoration(
-                  border: UnderlineInputBorder(),
-                  labelText: 'Enter the number of floor',
+        decoration: BoxDecoration(
+          color: Color(0xfffbf8d3),
+        ),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  child: Text("Number of Flat :"),
                 ),
-              ),
-              SizedBox(height: 16),
-              TextFormField(
-                decoration: const InputDecoration(
-                  border: UnderlineInputBorder(),
-                  labelText: 'Enter the number of units',
+                SizedBox(
+                  width: 20,
                 ),
-              ),
-              SizedBox(height: 16),
-              TextFormField(
-                decoration: const InputDecoration(
-                  border: UnderlineInputBorder(),
-                  labelText: 'Enter the Flat Sequence',
+                Container(
+                  width: 180,
+                  height: 35,
+                  child: TextFormField(),
                 ),
-              ),
-              SizedBox(height: 16),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.blue,
+              ],
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  child: Text("Number of Unit :"),
                 ),
-                onPressed: () {
-                  // Handle button press
-                },
-                child: Center(
-                  child: Text(
-                    'Create',
-                    style: TextStyle(color: Colors.white),
+                SizedBox(
+                  width: 20,
+                ),
+                Container(
+                  width: 180,
+                  height: 35,
+                  child: TextFormField(),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  child: Text("Flat Sequence :"),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Container(
+                  width: 180,
+                  height: 35,
+                  child: TextFormField(),
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton.icon(
+                  onPressed: () {},
+                  label: Text("Create List"),
+                  icon: Icon(Icons.list),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(Colors
+                        .greenAccent), // Change Colors.blue to the color you want
                   ),
                 ),
-              ),
-              SizedBox(height: 16),
-              // Add the Card widget here
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black, width: 1.0), // Adjust color and width as needed
-                  borderRadius: BorderRadius.all(Radius.circular(8.0)), // Adjust radius as needed
-                ),
-                child: Card(
-                  color: AppColors.bodyColor,
-                  child: Column(
-                    children: [
-                      ListTile(
-                        title: Center(child: Text('Flat ID',
-                        style: TextStyle(fontSize: 20,fontWeight: FontWeight.w700))),
-          
-                      ),
-                      Divider(),
-                      TextFormField(
-                        style: TextStyle(color: Colors.green),
-                        decoration: const InputDecoration(
-                          filled: true, // Enable filling
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
-          
-                          ),
-                          labelText: 'Enter the Flat Owner Name',
-          
-          
-                        ),
-                        cursorColor: Colors.deepOrange,
-                      ),
-                      SizedBox(height: 10),
-                      TextFormField(
-                        decoration: const InputDecoration(
-                          filled: true, // Enable filling
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(),
-                          labelText: 'Enter the Flat Owner phone Number',
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      TextFormField(
-                        decoration: const InputDecoration(
-                          filled: true, // Enable filling
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(),
-                          labelText: 'Enter the Flat Owner NID number',
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      TextFormField(
-                        decoration: const InputDecoration(
-                          filled: true, // Enable filling
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(),
-                          labelText: 'Enter the Flat Owner Address',
-                        ),
-                      ),
-          
-                    ],
-                  ),
-          
-                ),
-          
-              ),
-              SizedBox(height: 16),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.blue,
-                ),
-                onPressed: () {
-                  // Handle button press
-                },
-                child: Center(
-                  child: Text(
-                    'Submit',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              )
-            ],
-          
-          ),
+              ],
+            ),
+          ],
         ),
       ),
     );
