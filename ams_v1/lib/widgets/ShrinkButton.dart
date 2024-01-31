@@ -47,7 +47,7 @@ class _ShrinkButtonState extends State<ShrinkButton>
           onPressed: null,
           child: widget.child,
           style: ElevatedButton.styleFrom(
-            disabledBackgroundColor: Colors.blue,
+            disabledBackgroundColor: Colors.greenAccent,
             disabledForegroundColor: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),

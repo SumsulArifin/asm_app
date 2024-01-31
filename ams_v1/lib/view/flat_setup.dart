@@ -1,6 +1,8 @@
 import 'package:ams_v1/res/color.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/CustomTextFormField.dart';
+import '../widgets/ShrinkButton.dart';
 import 'home_screen.dart';
 
 class FlatSetup extends StatefulWidget {
@@ -11,8 +13,6 @@ class FlatSetup extends StatefulWidget {
 }
 
 class _FlatSetupState extends State<FlatSetup> {
-
-
   void _navigateToOtherPage(BuildContext context) {
     Navigator.push(
       context,
@@ -63,91 +63,275 @@ class _FlatSetupState extends State<FlatSetup> {
           ),
         ], // Set the elevation to add a shadow
       ),
-
       resizeToAvoidBottomInset: false,
+      backgroundColor: AppColors.bodyColor,
       body: Container(
         padding: EdgeInsets.all(16.0),
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
-          color: Color(0xfffbf8d3),
-        ),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  child: Text("Number of Flat :"),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                Container(
-                  width: 180,
-                  height: 35,
-                  child: TextFormField(),
-                ),
-              ],
-            ),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  child: Text("Number of Unit :"),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                Container(
-                  width: 180,
-                  height: 35,
-                  child: TextFormField(),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  child: Text("Flat Sequence :"),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                Container(
-                  width: 180,
-                  height: 35,
-                  child: TextFormField(),
-                ),
-              ],
-            ),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton.icon(
-                  onPressed: () {},
-                  label: Text("Create List"),
-                  icon: Icon(Icons.list),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors
-                        .greenAccent), // Change Colors.blue to the color you want
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomTextFormField(
+                labelText: 'Flat',
+                prefixIcon: Icons.person,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+              CustomTextFormField(
+                labelText: ' Unit',
+                prefixIcon: Icons.house_siding_outlined,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+              CustomTextFormField(
+                labelText: ' Sequence',
+                prefixIcon: Icons.insert_invitation,
+              ),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: ShrinkButton(
+                      child: Text('Save'),
+                      shrinkScale: 0.7,
+                      onPressed: () {
+                        // Your desired action here
+                      },
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+              // SizedBox(
+              //   height: MediaQuery.of(context).size.height * 0.01,
+              // ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //   children: [
+              //     Container(
+              //       child: Text("Number of Flat :"),
+              //     ),
+              //     SizedBox(
+              //       width: 20,
+              //     ),
+              //     Container(
+              //       width: 180,
+              //       height: 35,
+              //       child: TextFormField(),
+              //     ),
+              //   ],
+              // ),
+              // SizedBox(height: 20),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //   children: [
+              //     Container(
+              //       child: Text("Number of Unit :"),
+              //     ),
+              //     SizedBox(
+              //       width: 20,
+              //     ),
+              //     Container(
+              //       width: 180,
+              //       height: 35,
+              //       child: TextFormField(),
+              //     ),
+              //   ],
+              // ),
+              // SizedBox(
+              //   height: 20,
+              // ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //   children: [
+              //     Container(
+              //       child: Text("Flat Sequence :"),
+              //     ),
+              //     SizedBox(
+              //       width: 20,
+              //     ),
+              //     Container(
+              //       width: 180,
+              //       height: 35,
+              //       child: TextFormField(),
+              //     ),
+              //   ],
+              // ),
+              // SizedBox(height: 20),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     ElevatedButton.icon(
+              //       onPressed: () {},
+              //       label: Text("Create List"),
+              //       icon: Icon(Icons.list),
+              //       style: ButtonStyle(
+              //         backgroundColor: MaterialStateProperty.all<Color>(Colors
+              //             .greenAccent), // Change Colors.blue to the color you want
+              //       ),
+              //     ),
+              //   ],
+              // ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
-
+// import 'package:ams_v1/res/color.dart';
+// import 'package:flutter/material.dart';
+//
+// import 'home_screen.dart';
+//
+// class FlatSetup extends StatefulWidget {
+//   const FlatSetup({Key? key}) : super(key: key);
+//
+//   @override
+//   State<FlatSetup> createState() => _FlatSetupState();
+// }
+//
+// class _FlatSetupState extends State<FlatSetup> {
+//
+//
+//   void _navigateToOtherPage(BuildContext context) {
+//     Navigator.push(
+//       context,
+//       MaterialPageRoute(builder: (context) => HomeScreen()),
+//     );
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         backgroundColor: Color(0xfffbf8d3),
+//         // backgroundColor: Colors.greenAccent,
+//         title: Center(
+//           child: Text(
+//             "Flat Setup",
+//             textAlign: TextAlign.center,
+//             style: TextStyle(
+//               fontSize: 15,
+//               fontWeight: FontWeight.w400,
+//               height: 15,
+//               color: Color(0xff000000),
+//             ),
+//           ),
+//         ),
+//         shape: ContinuousRectangleBorder(
+//           borderRadius: BorderRadius.only(
+//             bottomLeft: Radius.circular(35),
+//             bottomRight: Radius.circular(35),
+//           ),
+//         ),
+//         elevation: 4.0,
+//         leading: IconButton(
+//           icon: Icon(Icons.arrow_back),
+//           onPressed: () {
+//             Navigator.push(
+//               context,
+//               MaterialPageRoute(builder: (context) => HomeScreen()),
+//             );
+//           },
+//         ),
+//         actions: [
+//           IconButton(
+//             icon: Icon(Icons.menu),
+//             onPressed: () {
+//               // Handle menu icon press
+//             },
+//           ),
+//         ], // Set the elevation to add a shadow
+//       ),
+//
+//       resizeToAvoidBottomInset: false,
+//       body: Container(
+//         padding: EdgeInsets.all(16.0),
+//         width: MediaQuery.of(context).size.width,
+//         height: MediaQuery.of(context).size.height,
+//         decoration: BoxDecoration(
+//           color: Color(0xfffbf8d3),
+//         ),
+//         child: Column(
+//           children: [
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//               children: [
+//                 Container(
+//                   child: Text("Number of Flat :"),
+//                 ),
+//                 SizedBox(
+//                   width: 20,
+//                 ),
+//                 Container(
+//                   width: 180,
+//                   height: 35,
+//                   child: TextFormField(),
+//                 ),
+//               ],
+//             ),
+//             SizedBox(height: 20),
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//               children: [
+//                 Container(
+//                   child: Text("Number of Unit :"),
+//                 ),
+//                 SizedBox(
+//                   width: 20,
+//                 ),
+//                 Container(
+//                   width: 180,
+//                   height: 35,
+//                   child: TextFormField(),
+//                 ),
+//               ],
+//             ),
+//             SizedBox(
+//               height: 20,
+//             ),
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//               children: [
+//                 Container(
+//                   child: Text("Flat Sequence :"),
+//                 ),
+//                 SizedBox(
+//                   width: 20,
+//                 ),
+//                 Container(
+//                   width: 180,
+//                   height: 35,
+//                   child: TextFormField(),
+//                 ),
+//               ],
+//             ),
+//             SizedBox(height: 20),
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               children: [
+//                 ElevatedButton.icon(
+//                   onPressed: () {},
+//                   label: Text("Create List"),
+//                   icon: Icon(Icons.list),
+//                   style: ButtonStyle(
+//                     backgroundColor: MaterialStateProperty.all<Color>(Colors
+//                         .greenAccent), // Change Colors.blue to the color you want
+//                   ),
+//                 ),
+//               ],
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 // import 'package:ams_v1/model/customerUser_model.dart';
 // import 'package:flutter/cupertino.dart';
