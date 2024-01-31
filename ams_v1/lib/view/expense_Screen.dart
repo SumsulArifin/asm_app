@@ -1,3 +1,4 @@
+import 'package:ams_v1/view/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,48 +19,55 @@ class _Expense_ScreenState extends State<Expense_Screen> {
 
   TextEditingController _dateController = TextEditingController();
 
-  final appbar = AppBar(
-    backgroundColor: Color(0xfffbf8d3),
-    // backgroundColor: Colors.greenAccent,
-    title: Center(
-      child: Text(
-        "Expense",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 15,
-          fontWeight: FontWeight.w400,
-          height: 15,
-          color: Color(0xff000000),
-        ),
+  void _navigateToOtherPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => HomeScreen(),
       ),
-    ),
-    shape: ContinuousRectangleBorder(
-      borderRadius: BorderRadius.only(
-        bottomLeft: Radius.circular(35),
-        bottomRight: Radius.circular(35),
-      ),
-    ),
-    elevation: 4.0,
-    leading: IconButton(
-      icon: Icon(Icons.arrow_back),
-      onPressed: () {
-        // Handle back button press
-      },
-    ),
-    actions: [
-      IconButton(
-        icon: Icon(Icons.menu),
-        onPressed: () {
-          // Handle menu icon press
-        },
-      ),
-    ], // Set the elevation to add a shadow
-  );
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appbar,
+      appBar: AppBar(
+        backgroundColor: Color(0xfffbf8d3),
+        // backgroundColor: Colors.greenAccent,
+        title: Center(
+          child: Text(
+            "Expense",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w400,
+              height: 15,
+              color: Color(0xff000000),
+            ),
+          ),
+        ),
+        shape: ContinuousRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(35),
+            bottomRight: Radius.circular(35),
+          ),
+        ),
+        elevation: 4.0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            _navigateToOtherPage(context);
+          },
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () {
+              // Handle menu icon press
+            },
+          ),
+        ], // Set the elevation to add a shadow
+      ),
       resizeToAvoidBottomInset: false,
       body: Container(
         padding: EdgeInsets.all(25.0),
@@ -70,6 +78,9 @@ class _Expense_ScreenState extends State<Expense_Screen> {
         ),
         child: Column(
           children: [
+            SizedBox(
+              height: 50,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -109,10 +120,15 @@ class _Expense_ScreenState extends State<Expense_Screen> {
                 ),
               ],
             ),
+            SizedBox(
+              height: 50,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(padding: EdgeInsets.fromLTRB(0, 100, 0, 0),),
+                // Padding(
+                //   padding: EdgeInsets.fromLTRB(0, 100, 0, 0),
+                // ),
                 ElevatedButton.icon(
                   onPressed: () async {
                     final DateTime? datetime = await showDatePicker(
@@ -142,9 +158,6 @@ class _Expense_ScreenState extends State<Expense_Screen> {
                 // ),
               ],
             ),
-            SizedBox(
-              height: 5,
-            ),
             Row(
               children: [
                 Flexible(
@@ -161,13 +174,22 @@ class _Expense_ScreenState extends State<Expense_Screen> {
                       children: [
                         TextFormField(
                           controller: _dateController,
-                          decoration: InputDecoration(labelText: 'Date'),
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.date_range_sharp),
+                            labelText: 'Date',
+                          ),
                         ),
                         TextFormField(
-                          decoration: InputDecoration(labelText: 'Amount'),
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.attach_money),
+                            labelText: 'Amount',
+                          ),
                         ),
                         TextFormField(
-                          decoration: InputDecoration(labelText: 'Description'),
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.description),
+                            labelText: 'Description',
+                          ),
                         ),
                       ],
                     ),
@@ -192,7 +214,7 @@ class _Expense_ScreenState extends State<Expense_Screen> {
                 }
               },
               label: Text("Save"),
-              icon: Icon(Icons.save),
+              icon: Icon(Icons.save_alt_outlined),
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(
                   Colors.greenAccent,
